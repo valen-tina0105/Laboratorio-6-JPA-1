@@ -1,14 +1,1 @@
-# JAX-RS Template Application
-
-This is a template for a lightweight RESTful API using JAX-RS. The sample code is a call for getting the current time.
-    
-## Running the application locally
-
-First build with:
-
-    $mvn clean install
-
-Then run it with:
-
-    $ java -cp target/classes:target/dependency/* com.example.Main
-
+Al agregar la anotación @OneToMany en la entidad Competitor, se establece una relación de uno a muchos con la entidad Producto, lo que implica que un competidor puede estar asociado a varios productos. En términos de base de datos, esto no crea una tabla intermedia, sino que modifica la tabla correspondiente a Producto, añadiendo una clave foránea que referencia la clave primaria de la tabla Competitor. Es decir, cada registro en la tabla Producto queda vinculado a un competidor específico mediante esa clave. Además, como la relación está definida con mappedBy = "competitor", se indica que la entidad Producto es la dueña de la relación, por lo que es allí donde se gestiona la columna de la clave foránea. Esto permite mantener la integridad referencial y facilita operaciones en cascada si se configuró cascade = ALL.
